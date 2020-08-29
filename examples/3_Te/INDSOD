@@ -1,0 +1,13 @@
+&input
+  nsub = 3
+  subs = 3,3,30
+  symb = S,Se,Te
+  site = 1
+  prec = 1D-5
+  fast = .true.
+  lpro = .true.
+! lpos = .true.
+! leqa = .true.
+! lspg = .false.
+! lcfg = .false.
+/

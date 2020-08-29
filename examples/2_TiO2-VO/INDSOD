@@ -1,0 +1,13 @@
+&input
+  nsub = 2
+  subs = 2,70
+  symb = Kw,O
+  site = 2
+  prec = 1D-3
+! fast = .true.
+  lpro = .true.
+! lpos = .true.
+! leqa = .true.
+! lspg = .false.
+! lcfg = .false.
+/
