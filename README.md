@@ -3,10 +3,10 @@
 - Please modify the Makefile in the **src/** folder, if you want to use another compiler.
 - Make compile the executables into the **bin/** folder:
 ```
-make disorder  # Only disorder  is compiled
-make supercell # Only supercell is compiled
-make           # Both disorder and supercell are compiled
-make clean     # rm *.mod *.o
+make disorder     # Only disorder  is compiled
+make supercell    # Only supercell is compiled
+make              # Both disorder and supercell are compiled
+make clean        # rm *.mod *.o
 ```
 
 
@@ -18,11 +18,11 @@ make clean     # rm *.mod *.o
 - We provide a util (i.e., ***`supercell`***) for expanding the small cell.
 - The non-diagonal supercell expansion matrix is also supported in ***`supercell`***.
 - More detailed information about ***`supercell`*** can be seen at the end of this document.
-- Any other software can also be used for cell expansion, as long as the format of **SPOCAR** is correct.
+- Any other software can also be used for cell expansion, as long as the format of **SPOSCAR** is correct.
 
 
 ### INDSOD (Running control file)
-- **INDSOD** contains 11 parameters to control the running of ***`disorder`***.
+- **INDSOD** contains **11** parameters to control the running of ***`disorder`***.
 - Its format and the meaning of all parameters are shown below:
 
 ```
