@@ -8,7 +8,7 @@ make supercell # Only supercell is compiled
 make           # Both disorder and supercell are compiled
 make clean     # rm *.mod *.o
 ```
-![1](http://latex.codecogs.com/svg.latex?\int_a^bf(x)\ dx)
+
 
 # Input Files
 
