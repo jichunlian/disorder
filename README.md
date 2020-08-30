@@ -40,10 +40,10 @@ make clean     # rm *.mod *.o
   lcfg = logical                    # Whether to output the CFGMAT file (Default .true.)
 /                                   # Terminator
 ```
->**&input** and **/** are indispensable and immutable.
- The order of the above parameters is irrelevant.
- The exclamation mark **!** can be used for annotations.
- The atomic symbol of **Kw** represents the vacancy.
+>**&input** and **/** are indispensable and immutable.  
+The order of the above parameters is irrelevant.  
+The exclamation mark **!** can be used for annotations.  
+The atomic symbol of **Kw** represents the vacancy.
 
 
 
