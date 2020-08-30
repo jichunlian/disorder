@@ -41,10 +41,10 @@ make clean        # rm *.mod *.o
 /                                   # Terminator
 ```
 >**Note:**  
-1. **&input** and **/** are indispensable and immutable.  
-2. The order of the above parameters is irrelevant.  
-3. The exclamation mark **!** can be used for annotations.  
-4. The atomic symbol of **Kw** represents the vacancy.
+> 1. **&input** and **/** are indispensable and immutable.  
+> 2. The order of the above parameters is irrelevant.  
+> 3. The exclamation mark **!** can be used for annotations.  
+> 4. The atomic symbol of **Kw** represents the vacancy.
 
 
 
