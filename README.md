@@ -8,7 +8,7 @@ make supercell    # Only supercell is compiled
 make              # Both disorder and supercell are compiled
 make clean        # rm *.mod *.o
 ```
-
+![1](http://latex.codecogs.com/gif.latex?\\sigma=\sqrt{\frac{1}{n}{\sum_{k=1}^n(x_i-\bar{x})^2}})
 
 # Input Files
 
