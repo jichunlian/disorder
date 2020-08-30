@@ -12,16 +12,16 @@ make clean     # rm *.mod *.o
 
 # Input Files
 
-## SPOSCAR (Crystal structure file)
-- The format of SPOSCAR is consistent with the POSCAR of VASP.5.x.
-- SPOSCAR should be a supercell, because ***`disorder`*** does not expand the cell inputted from SPOSCAR.
+### SPOSCAR (Crystal structure file)
+- The format of **SPOSCAR** is consistent with the **POSCAR** of **`VASP.5.x`**.
+- **SPOSCAR** should be a supercell, because ***`disorder`*** does not expand the cell inputted from SPOSCAR.
 - We provide a util (i.e., ***`supercell`***) for expanding the small cell.
 - The non-diagonal supercell expansion matrix is also supported in ***`supercell`***.
 - More detailed information about ***`supercell`*** can be seen at the end of this document.
 - Any other software can also be used for cell expansion, as long as the format of **SPOCAR** is correct.
 
 
-## INDSOD (Running control file)
+### INDSOD (Running control file)
 - **INDSOD** contains 11 parameters to control the running of ***`disorder`***.
 - Its format and the meaning of all parameters are shown below:
 
@@ -50,10 +50,10 @@ The atomic symbol of **Kw** represents the vacancy.
 
 # Output Files
 
-## SPGMAT (Space group operations file)
-## EQAMAT (Equivalent atomic matrix file)
-## CFGMAT (Irreducible atomic configurations file)
-## POSCAR-x... (Irreducible disordered structure files)
+### SPGMAT (Space group operations file)
+### EQAMAT (Equivalent atomic matrix file)
+### CFGMAT (Irreducible atomic configurations file)
+### POSCAR-x... (Irreducible disordered structure files)
 
 
 
@@ -62,20 +62,20 @@ The atomic symbol of **Kw** represents the vacancy.
 - We use the first example to introduce the running of ***`disorder`***.
 - The second example is used to introduce the running of ***`supercell`***.
 
-## disorder
+### disorder
 
 ```
 cd examples/1_SnxPb1-xTe/
 ../../bin/disorder
 ```
 
-## supercell
+### supercell
 
 ```
 cd examples/2_TiO2-VO/
 ```
 
-- If the small cell is an unit cell
+- **If the small cell is an unit cell
 
 ```
 cp POSCAR_unit POSCAR
@@ -84,7 +84,7 @@ cp POSCAR_unit POSCAR
   0  3  0
   0  0  1
 ```
-- If the small cell is a primitive cell
+- **If the small cell is a primitive cell
 
 ```
 cp POSCAR_prim POSCAR
