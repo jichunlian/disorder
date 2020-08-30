@@ -58,7 +58,7 @@ The atomic symbol of **Kw** represents the vacancy.
 
 
 # Running
-- We provide two examples for testing (i.e., $$Sn_{x}Pb_{1-x}Te$$ and $TiO_{2}\_VO$).
+- We provide two examples for testing (i.e., SnxPb1-xTe and TiO2-VO).
 - We use the first example to introduce the running of ***`disorder`***.
 - The second example is used to introduce the running of ***`supercell`***.
 
