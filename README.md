@@ -5,7 +5,7 @@
 > make disorder  # Only disorder  is compiled\
 > make supercell # Only supercell is compiled\
 > make           # Both disorder and supercell are compiled\
-> make clean     # rm *.mod *.o\
+> make clean     # rm *.mod *.o
 
 
 
@@ -24,24 +24,24 @@
 - INDSOD contains 11 parameters to control the running of 'disorder'.
 - Its format and the meaning of all parameters are shown below:
 
-&input                              # The title of namelist
-  nsub = integer                    # nsub-nary substitution (Default 2)
-  subs = integer,integer,...        # Atomic numbers, nsub integers (No default)
-  symb = character,character,...    # Atomic symbols, nsub integers (No default)
-  site = integer                    # Atomic species to be substituted (Default 1)
-  prec = real                       # Symmetry precision (Default 1D-4)
-  fast = logical                    # Whether to turn on Fast Mode (Semi-automatic)
-  lpro = logical                    # Whether to display the progress bar (Default .false.)
-  lpos = logical                    # Whether to output the POSCAR-x... files (Default .false.)
-  leqa = logical                    # Whether to output the EQAMAT file (Default .false.)
-  lspg = logical                    # Whether to output the SPGMAT file (Default .true.)
-  lcfg = logical                    # Whether to output the CFGMAT file (Default .true.)
-/                                   # Terminator
+&input                              # The title of namelist\
+  nsub = integer                    # nsub-nary substitution (Default 2)\
+  subs = integer,integer,...        # Atomic numbers, nsub integers (No default)\
+  symb = character,character,...    # Atomic symbols, nsub integers (No default)\
+  site = integer                    # Atomic species to be substituted (Default 1)\
+  prec = real                       # Symmetry precision (Default 1D-4)\
+  fast = logical                    # Whether to turn on Fast Mode (Semi-automatic)\
+  lpro = logical                    # Whether to display the progress bar (Default .false.)\
+  lpos = logical                    # Whether to output the POSCAR-x... files (Default .false.)\
+  leqa = logical                    # Whether to output the EQAMAT file (Default .false.)\
+  lspg = logical                    # Whether to output the SPGMAT file (Default .true.)\
+  lcfg = logical                    # Whether to output the CFGMAT file (Default .true.)\
+/                                   # Terminator\
 
-'&input' and '/' are indispensable and immutable.
-The order of the above parameters is irrelevant.
-The exclamation mark '!' can be used for annotations.
-The atomic symbol of 'Kw' represents the vacancy.
+- '&input' and '/' are indispensable and immutable.
+- The order of the above parameters is irrelevant.
+- The exclamation mark '!' can be used for annotations.
+- The atomic symbol of 'Kw' represents the vacancy.
 
 
 
@@ -61,7 +61,7 @@ The atomic symbol of 'Kw' represents the vacancy.
 
 ## disorder
 
-> cd examples/1_SnxPb1-xTe/
+> cd examples/1_SnxPb1-xTe/\
 > ../../bin/disorder
 
 
@@ -70,15 +70,15 @@ The atomic symbol of 'Kw' represents the vacancy.
 > cd examples/2_TiO2-VO/
 
 ### If the small cell is an unit cell
-> cp POSCAR_unit POSCAR
-> ../../bin/supercell
-  3  0  0
-  0  3  0
+> cp POSCAR_unit POSCAR\
+> ../../bin/supercell\
+  3  0  0\
+  0  3  0\
   0  0  1
 
 ### If the small cell is a primitive cell
-> cp POSCAR_prim POSCAR
-> ../../bin/supercell
-  3  0  3
-  0  3  3
+> cp POSCAR_prim POSCAR\
+> ../../bin/supercell\
+  3  0  3\
+  0  3  3\
  -1 -1  0
