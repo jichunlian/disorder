@@ -25,6 +25,7 @@ make clean     # rm *.mod *.o
 - INDSOD contains 11 parameters to control the running of 'disorder'.
 - Its format and the meaning of all parameters are shown below:
 
+```
 &input                              # The title of namelist\
   nsub = integer                    # nsub-nary substitution (Default 2)\
   subs = integer,integer,...        # Atomic numbers, nsub integers (No default)\
@@ -38,7 +39,7 @@ make clean     # rm *.mod *.o
   lspg = logical                    # Whether to output the SPGMAT file (Default .true.)\
   lcfg = logical                    # Whether to output the CFGMAT file (Default .true.)\
 /                                   # Terminator\
-
+```
 - '&input' and '/' are indispensable and immutable.
 - The order of the above parameters is irrelevant.
 - The exclamation mark '!' can be used for annotations.
@@ -62,24 +63,29 @@ make clean     # rm *.mod *.o
 
 ## disorder
 
-> cd examples/1_SnxPb1-xTe/\
-> ../../bin/disorder
-
+```
+cd examples/1_SnxPb1-xTe/
+../../bin/disorder
+```
 
 ## supercell
 
-> cd examples/2_TiO2-VO/
+`cd examples/2_TiO2-VO/`
 
 ### If the small cell is an unit cell
-> cp POSCAR_unit POSCAR\
-> ../../bin/supercell\
-  3  0  0\
-  0  3  0\
+```
+cp POSCAR_unit POSCAR
+../../bin/supercell
+  3  0  0
+  0  3  0
   0  0  1
-
+```
 ### If the small cell is a primitive cell
-> cp POSCAR_prim POSCAR\
-> ../../bin/supercell\
-  3  0  3\
-  0  3  3\
+
+```
+cp POSCAR_prim POSCAR
+../../bin/supercell
+  3  0  3
+  0  3  3
  -1 -1  0
+```
