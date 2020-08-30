@@ -14,10 +14,10 @@ make clean     # rm *.mod *.o
 
 ## SPOSCAR (Crystal structure file)
 - The format of SPOSCAR is consistent with the POSCAR of VASP.5.x.
-- SPOSCAR should be a supercell, because ***disorder*** does not expand the cell inputted from SPOSCAR.
-- We provide a util (i.e., ***supercell***) for expanding the small cell.
-- The non-diagonal supercell expansion matrix is also supported in ***supercell***.
-- More detailed information about ***supercell*** can be seen at the end of this document.
+- SPOSCAR should be a supercell, because `***disorder***` does not expand the cell inputted from SPOSCAR.
+- We provide a util (i.e., `***supercell***`) for expanding the small cell.
+- The non-diagonal supercell expansion matrix is also supported in `***supercell***`.
+- More detailed information about `***supercell***` can be seen at the end of this document.
 - Any other software can also be used for cell expansion, as long as the format of SPOCAR is correct.
 
 
@@ -40,7 +40,8 @@ make clean     # rm *.mod *.o
   lcfg = logical                    # Whether to output the CFGMAT file (Default .true.)
 /                                   # Terminator
 ```
->**&input** and **/** are indispensable and immutable.  
+>**Note:**  
+**&input** and **/** are indispensable and immutable.  
 The order of the above parameters is irrelevant.  
 The exclamation mark **!** can be used for annotations.  
 The atomic symbol of **Kw** represents the vacancy.
