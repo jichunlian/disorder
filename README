@@ -22,7 +22,7 @@
 
 
 ## INDSOD (Running control file)
-- INDSOD contains 9 parameters to control the running of 'disorder'.
+- INDSOD contains 11 parameters to control the running of 'disorder'.
 - Its format and the meaning of all parameters are shown below:
 
 &input                              # The title of namelist
@@ -31,7 +31,7 @@
   symb = character,character,...    # Atomic symbols, nsub integers (No default)
   site = integer                    # Atomic species to be substituted (Default 1)
   prec = real                       # Symmetry precision (Default 1D-4)
-  fast = logical                    # Whether to turn on Fast Mode (Default Auto)
+  fast = logical                    # Whether to turn on Fast Mode (Semi-automatic)
   lpro = logical                    # Whether to display the progress bar (Default .false.)
   lpos = logical                    # Whether to output the POSCAR-x... files (Default .false.)
   leqa = logical                    # Whether to output the EQAMAT file (Default .false.)
