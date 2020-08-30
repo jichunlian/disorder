@@ -62,20 +62,20 @@ The atomic symbol of **Kw** represents the vacancy.
 - We use the first example to introduce the running of ***`disorder`***.
 - The second example is used to introduce the running of ***`supercell`***.
 
-### disorder
+## disorder
 
 ```
 cd examples/1_SnxPb1-xTe/
 ../../bin/disorder
 ```
 
-### supercell
+## supercell
 
 ```
 cd examples/2_TiO2-VO/
 ```
 
-- **If the small cell is an unit cell
+- **If the small cell is an unit cell**
 
 ```
 cp POSCAR_unit POSCAR
@@ -84,7 +84,7 @@ cp POSCAR_unit POSCAR
   0  3  0
   0  0  1
 ```
-- **If the small cell is a primitive cell
+- **If the small cell is a primitive cell**
 
 ```
 cp POSCAR_prim POSCAR
