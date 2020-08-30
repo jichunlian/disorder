@@ -14,7 +14,7 @@ make clean     # rm *.mod *.o
 
 ## SPOSCAR (Crystal structure file)
 - The format of SPOSCAR is consistent with the POSCAR of VASP.5.x.
-- SPOSCAR should be a supercell, because `***disorder***` does not expand the cell inputted from SPOSCAR.
+- SPOSCAR should be a supercell, because ***`disorder`*** does not expand the cell inputted from SPOSCAR.
 - We provide a util (i.e., `***supercell***`) for expanding the small cell.
 - The non-diagonal supercell expansion matrix is also supported in `***supercell***`.
 - More detailed information about `***supercell***` can be seen at the end of this document.
