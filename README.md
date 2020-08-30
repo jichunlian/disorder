@@ -2,11 +2,12 @@
 - The default compiler is ifort.
 - Please modify the Makefile in the src/ folder, if you want to use another compiler.
 - Make compile the executables into the bin/ folder:
-> make disorder  # Only disorder  is compiled\
-> make supercell # Only supercell is compiled\
-> make           # Both disorder and supercell are compiled\
-> make clean     # rm *.mod *.o
-
+```
+make disorder  # Only disorder  is compiled
+make supercell # Only supercell is compiled
+make           # Both disorder and supercell are compiled
+make clean     # rm *.mod *.o
+```
 
 
 # Input Files
