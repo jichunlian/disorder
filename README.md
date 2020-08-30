@@ -1,8 +1,8 @@
-### Compiling
+# Compiling
 - The default compiler is ifort.
 - Please modify the Makefile in the src/ folder, if you want to use another compiler.
 - Make compile the executables into the bin/ folder:
-# '>' represents the bash command
+'>' represents the bash command
 > make disorder  # Only disorder  is compiled
 > make supercell # Only supercell is compiled
 > make           # Both disorder and supercell are compiled
@@ -10,7 +10,7 @@
 
 
 
-### Input Files
+# Input Files
 
 ## SPOSCAR (Crystal structure file)
 - The format of SPOSCAR is consistent with the POSCAR of VASP.5.x.
@@ -39,14 +39,14 @@
   lcfg = logical                    # Whether to output the CFGMAT file (Default .true.)
 /                                   # Terminator
 
-# '&input' and '/' are indispensable and immutable.
-# The order of the above parameters is irrelevant.
-# The exclamation mark '!' can be used for annotations.
-# The atomic symbol of 'Kw' represents the vacancy.
+'&input' and '/' are indispensable and immutable.
+The order of the above parameters is irrelevant.
+The exclamation mark '!' can be used for annotations.
+The atomic symbol of 'Kw' represents the vacancy.
 
 
 
-### Output Files
+# Output Files
 
 ## SPGMAT (Space group operations file)
 ## EQAMAT (Equivalent atomic matrix file)
@@ -55,7 +55,7 @@
 
 
 
-### Running
+# Running
 - We provide two examples for testing (i.e., SnxPb1-xTe and TiO2-VO).
 - We use the first example to introduce the running of 'disorder'.
 - The second example is used to introduce the running of 'supercell'.
@@ -70,14 +70,14 @@
 
 > cd examples/2_TiO2-VO/
 
-# If the small cell is an unit cell
+### If the small cell is an unit cell
 > cp POSCAR_unit POSCAR
 > ../../bin/supercell
   3  0  0
   0  3  0
   0  0  1
 
-# If the small cell is a primitive cell
+### If the small cell is a primitive cell
 > cp POSCAR_prim POSCAR
 > ../../bin/supercell
   3  0  3
