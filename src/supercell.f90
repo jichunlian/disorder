@@ -8,7 +8,6 @@ program supercell
   integer(2),allocatable :: natom(:)
   integer(1),allocatable :: Pc(:,:)
   character(len=2),allocatable :: atom(:)
-  character(len=20) :: poscar
   integer(2) :: i,j,k,n,nt,np,na
 
   read(*,*) M(1,:)
@@ -47,8 +46,7 @@ program supercell
       T(:,n)=Pd(:,i)
     end if
   end do
-  poscar='POSCAR'
-  call readpos(a,x,atom,natom,poscar)
+  call readpos(a,x,atom,natom,'POSCAR')
   x=matmul(a,x)
   a=matmul(a,dble(M))
   x=matmul(inverse(a),x)
@@ -79,6 +77,5 @@ program supercell
   a(1,3)=lc*cosr
   a(2,3)=(lc*cosb-a(1,3)*cosa)/sina
   a(3,3)=dsqrt(lc**2-a(1,3)**2-a(2,3)**2)
-  poscar='SPOSCAR'
-  call writepos(a,xs,atom,natom,poscar) 
+  call writepos(a,xs,atom,natom,'SPOSCAR') 
 end program supercell
