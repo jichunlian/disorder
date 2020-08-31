@@ -10,6 +10,11 @@
 - Count the degeneracy (the number of equivalent configurations) of each irreducible configuration.
 - Output the POSCAR file (the input file of VASP) of each irreducible configuration.
 
+## Author & Contact
+- Ji-Chun Lian (jichunlian@hnu.edu.cn), Department of Applied Physics, School of Physics and Electronics, Hunan University, Changsha, China
+- If you have any questions, suggestions, and problems regarding ***`disorder`***, please feel free to contact me.
+
+
 # Compiling
 - The default compiler is ifort.
 - Please modify the Makefile in the **src/** folder, if you want to use another compiler.
