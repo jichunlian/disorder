@@ -53,7 +53,7 @@ subroutine writepos(a,x,symbol,natom,poscar)
   integer(2) :: natom(:),na,i
   integer(1) :: ntype
   character(len=2) :: symbol(:),fm
-  character(len=20) :: poscar
+  character(len=*) :: poscar
 
   open(11,file=poscar)
   write(11,'(A)') trim(poscar)
