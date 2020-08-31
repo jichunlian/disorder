@@ -13,8 +13,7 @@ program disorder
   real(8),allocatable :: spgmat(:,:,:)
   integer(1) :: site,nsub,io_err,alive,i
   real(4) :: time0,time1
-  logical(1) :: leqa,lspg,lcfg,lpos,lpro,exis,fast
-  character(len=20) :: poscar
+  logical(1) :: leqa,lspg,lcfg,lpos,lpro,fast
   character(len=2),allocatable :: symbols(:),symb(:),atom(:)
   namelist /input/ nsub,subs,symb,prec,site,leqa,lspg,lcfg,lpos,lpro,fast
 
@@ -51,10 +50,9 @@ program disorder
   do i=1,nsub
     if ( ichar(symbols(i)(1:1)) == 0 ) call stderr('The number of SYMB is mismatch !')
   end do
-  poscar='SPOSCAR'
   inquire(file='SPOSCAR',exist=alive)
   if ( alive == 0 ) call stderr('The SPOSCAR file does not exist !')
-  call readpos(a,x,atom,natom,poscar)
+  call readpos(a,x,atom,natom,'SPOSCAR')
   if ( site > size(natom) .or. site < 1 ) call stderr('The value of SITE is not allowed !')
   if ( sum(k) /= natom(site) ) call stderr('The sum of SUBS is incorrect !')
   call stdout_1(natom,atom,site,k,symbols)
