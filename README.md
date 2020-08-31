@@ -1,3 +1,15 @@
+# About
+## What is ***`disorder`*** ?
+- ***`disorder`*** is an open source software designed for generating irreducible site-occupancy configurations (i.e., symmetrically inequivalent disordered structures), which can be used for disordered doping, including substitution doping and vacancy doping.
+
+## Features
+- Build a supercell form arbitrary input cell with any supercell expansion matrix.
+- Search space group operations of the supercell and identify its point group symbol.
+- Construct the equivalent atomic matrix of the atomic positions for disordered doping.
+- Generate irreducible configurations for any number of atomic types with arbitrary stoichiometry.
+- Count the degeneracy (the number of equivalent configurations) of each irreducible configuration.
+- Output the POSCAR file (the input file of VASP) of each irreducible configuration.
+
 # Compiling
 - The default compiler is ifort.
 - Please modify the Makefile in the **src/** folder, if you want to use another compiler.
