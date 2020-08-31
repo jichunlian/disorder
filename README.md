@@ -1,8 +1,8 @@
-# About
-## What is ***`disorder`*** ?
+# 1. About
+## 1.1. What is ***`disorder`*** ?
 - ***`disorder`*** is an open source software designed for generating irreducible site-occupancy configurations (i.e., symmetrically inequivalent disordered structures), which can be used for disordered doping, including substitution doping and vacancy doping.
 
-## Features
+## 1.2. Features
 - Build a supercell form arbitrary input cell with any supercell expansion matrix.
 - Search space group operations of the supercell and identify its point group symbol.
 - Construct the equivalent atomic matrix of the atomic positions for disordered doping.
@@ -10,12 +10,16 @@
 - Count the degeneracy (the number of equivalent configurations) of each irreducible configuration.
 - Output the POSCAR file (the input file of VASP) of each irreducible configuration.
 
-## Author & Contact
+## 1.3. License
+- Copyright © 2020 Ji-Chun Lian 
+- ***`disorder`*** is licensed under the MIT License, See the LICENSE file for license rights and limitations.
+
+## 1.4. Author & Contact
 - Ji-Chun Lian (jichunlian@hnu.edu.cn), Department of Applied Physics, School of Physics and Electronics, Hunan University, Changsha, China
 - If you have any questions, suggestions, and problems regarding ***`disorder`***, please feel free to contact me.
 
 
-# Compiling
+# 2. Compiling
 - The default compiler is ifort.
 - Please modify the Makefile in the **src/** folder, if you want to use another compiler.
 - Make compile the executables into the **bin/** folder:
@@ -27,9 +31,9 @@ make              # Both disorder and supercell are compiled
 make clean        # rm *.mod *.o
 ```
 
-# Input Files
+# 3. Input Files
 
-### SPOSCAR (Crystal structure file)
+### 3.1. SPOSCAR (Crystal structure file)
 - The format of **SPOSCAR** is consistent with the **POSCAR** of **`VASP.5.x`**.
 - **SPOSCAR** should be a supercell, because ***`disorder`*** does not expand the cell inputted from SPOSCAR.
 - We provide a util (i.e., ***`supercell`***) for expanding the small cell.
@@ -38,7 +42,7 @@ make clean        # rm *.mod *.o
 - Any other software can also be used for cell expansion, as long as the format of **SPOSCAR** is correct.
 
 
-### INDSOD (Running control file)
+### 3.2. INDSOD (Running control file)
 - **INDSOD** contains **11** parameters to control the running of ***`disorder`***.
 - Its format and the meaning of all parameters are shown below:
 
@@ -65,28 +69,28 @@ make clean        # rm *.mod *.o
 
 
 
-# Output Files
+# 4. Output Files
 
-### SPGMAT (Space group operations file)
-### EQAMAT (Equivalent atomic matrix file)
-### CFGMAT (Irreducible atomic configurations file)
-### POSCAR-x... (Irreducible disordered structure files)
+### 4.1. SPGMAT (Space group operations file)
+### 4.2. EQAMAT (Equivalent atomic matrix file)
+### 4.3. CFGMAT (Irreducible atomic configurations file)
+### 4.4. POSCAR (Irreducible disordered structure files)
 
 
 
-# Running
+# 5. Running
 - We provide two examples for testing (i.e., SnxPb1-xTe and TiO2-VO).
 - We use the first example to introduce the running of ***`disorder`***.
 - The second example is used to introduce the running of ***`supercell`***.
 
-## disorder
+## 5.1. Program ***`disorder`***
 
 ```
 cd examples/1_SnxPb1-xTe/
 ../../bin/disorder
 ```
 
-## supercell
+## 5.2. Program ***`supercell`***
 
 ```
 cd examples/2_TiO2-VO/
