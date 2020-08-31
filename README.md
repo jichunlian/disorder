@@ -8,11 +8,11 @@
 - Construct the equivalent atomic matrix of the atomic positions for disordered doping.
 - Generate irreducible configurations for any number of atomic types with arbitrary stoichiometry.
 - Count the degeneracy (the number of equivalent configurations) of each irreducible configuration.
-- Output the POSCAR file (the input file of VASP) of each irreducible configuration.
+- Output the **POSCAR** file (the input file of **`VASP`**) of each irreducible configuration.
 
 ## 1.3. License
-- Copyright © 2020 Ji-Chun Lian 
-- ***`disorder`*** is licensed under the MIT License, See the LICENSE file for license rights and limitations.
+- Copyright © 2020 Ji-Chun Lian
+- ***`disorder`*** is licensed under the **MIT License**, See the **LICENSE** file for license rights and limitations.
 
 ## 1.4. Author & Contact
 - Ji-Chun Lian (jichunlian@hnu.edu.cn), Department of Applied Physics, School of Physics and Electronics, Hunan University, Changsha, China
