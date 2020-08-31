@@ -20,7 +20,6 @@
 
 
 # 2. Compiling
-- The default compiler is ifort, please modify the **Makefile** in the **src/** folder, if you want to use another compiler.
 - Make compile the executables into the **bin/** folder:
 
 ```
