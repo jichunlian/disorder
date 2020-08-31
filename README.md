@@ -20,8 +20,7 @@
 
 
 # 2. Compiling
-- The default compiler is ifort.
-- Please modify the Makefile in the **src/** folder, if you want to use another compiler.
+- The default compiler is ifort, please modify the **Makefile** in the **src/** folder, if you want to use another compiler.
 - Make compile the executables into the **bin/** folder:
 
 ```
@@ -35,8 +34,8 @@ make clean        # rm *.mod *.o
 
 ### 3.1. SPOSCAR (Crystal structure file)
 - The format of **SPOSCAR** is consistent with the **POSCAR** of **`VASP.5.x`**.
-- **SPOSCAR** should be a supercell, because ***`disorder`*** does not expand the cell inputted from SPOSCAR.
-- We provide a util (i.e., ***`supercell`***) for expanding the small cell.
+- **SPOSCAR** should be a supercell, because ***`disorder`*** does not expand the cell inputted from **SPOSCAR**.
+- We provide a util (i.e., ***`supercell`***) for expanding the small cell
 - The non-diagonal supercell expansion matrix is also supported in ***`supercell`***.
 - More detailed information about ***`supercell`*** can be seen at the end of this document.
 - Any other software can also be used for cell expansion, as long as the format of **SPOSCAR** is correct.
@@ -79,9 +78,9 @@ make clean        # rm *.mod *.o
 
 
 # 5. Running
-- We provide two examples for testing (i.e., SnxPb1-xTe and TiO2-VO).
-- We use the first example to introduce the running of ***`disorder`***.
-- The second example is used to introduce the running of ***`supercell`***.
+- We provide three examples for testing (i.e., SnxPb1-xTe, TiO2-VO and Te).
+- The first example will be used to introduce the running of ***`disorder`***.
+- The second example will be used to introduce the running of ***`supercell`***.
 
 ## 5.1. Program ***`disorder`***
 
