@@ -104,8 +104,6 @@ subroutine stdout_5(time)
        h,' hour ',m,' min ',s,' sec'
 end subroutine stdout_5
 
-end module stdout
-
 subroutine stderr(massage)
   implicit none
   character(len=*) massage
@@ -119,3 +117,5 @@ subroutine stderr(massage)
   write(*,*)
   stop
 end subroutine stderr
+
+end module stdout
