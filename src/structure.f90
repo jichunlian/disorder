@@ -13,7 +13,7 @@ subroutine readpos(a,x,symbol,natom,poscar)
   real(8) :: scal
   character(len=2),allocatable :: symbol(:)
   character(len=1) :: coordinate
-  character(len=20) :: poscar
+  character(len=*) :: poscar
 
   open(10,file=poscar)
   read(10,*)
