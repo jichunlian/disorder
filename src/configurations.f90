@@ -51,7 +51,7 @@ subroutine irrconfig(iconf,deg,eqamat,k,lpro,fast)
     call std_mode
   end if
   call stdout_4(n)
-  allocate(iconf(n,ns))
+  allocate(iconf(ns,n))
   allocate(deg(n))
   nullify(p%next)
   i=0
