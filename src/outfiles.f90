@@ -92,7 +92,7 @@ subroutine outconfig(iconf,deg,k)
   integer(2) :: ibegin,iend
   character(len=20) :: fm
 
-  nc=size(iconf,1)
+  nc=size(iconf,2)
   nk=size(k)
   open(13,file='CFGMAT')
   do i=1,nc
@@ -102,7 +102,7 @@ subroutine outconfig(iconf,deg,k)
     do j=1,nk-1
       iend=iend+k(j)
       write(fm,*) k(j)
-      write(13,'(2X,'//fm//'I4\)') iconf(i,ibegin:iend)
+      write(13,'(2X,'//fm//'I4\)') iconf(ibegin:iend,i)
       ibegin=ibegin+k(j)
     end do
     write(13,*)
@@ -175,7 +175,7 @@ subroutine outposcar(a,x,atom,natom,symbols,k,site,iconf)
   allocate(x2(3,na2))
   allocate(nx2(na2))
 
-  nc=size(iconf,1)
+  nc=size(iconf,2)
   nd=width(i_8=nc)
   write(fm,*) nd
   call system('mkdir poscar 2> /dev/null')
@@ -185,10 +185,10 @@ subroutine outposcar(a,x,atom,natom,symbols,k,site,iconf)
     if ( nKw == nk ) then
       nx2=iconf(i,:)
     else
-      aconf=complement(iconf(i,:),na)
+      aconf=complement(iconf(:,i),na)
       n=na-k(nk)
       aconf(n+1:)=aconf(1:k(nk))
-      aconf(1:n)=iconf(i,:)
+      aconf(1:n)=iconf(:,i)
       if ( nkW /= 0 ) then
         n=sum(k(1:nKw))
         aconf(n-k(nKw)+1:na2)=aconf(n+1:)
