@@ -41,9 +41,9 @@ subroutine eqamatrix(eqamat,spgmat,a,x,natom,symprec,site)
   na=natom(site)
   allocate(atom(na))
   s=sum(natom(1:site-1))
-  do i=1,na
+  forall (i=1:na)
     atom(i)=s+i
-  end do
+  end forall
   allocate(eqamat(no,na))
   eqamat=eqamat3(:,atom)-s
   return
