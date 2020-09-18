@@ -199,7 +199,6 @@ subroutine outposcar(a,x,atom,natom,symbols,k,site,iconf)
     x_new(:,1:na1)=x1
     x_new(:,na1+1:)=x2
     write(tail,'(I'//fm//'.'//fm//')') i
-    tail=trim(tail)
     poscar='poscar/POSCAR-'//tail//''
     call writepos(a,x_new,atom_new,natom_new,poscar)
   end do
