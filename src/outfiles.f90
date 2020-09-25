@@ -183,7 +183,7 @@ subroutine outposcar(a,x,atom,natom,symbols,k,site,iconf)
   allocate(aconf(na))
   do i=1,nc
     if ( nKw == nk ) then
-      nx2=iconf(i,:)
+      nx2=iconf(:,i)
     else
       aconf=complement(iconf(:,i),na)
       n=na-k(nk)
