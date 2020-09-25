@@ -59,7 +59,7 @@ subroutine irrconfig(iconf,deg,eqamat,k,lpro,fast)
   do while ( associated(p%next) )
     p=>p%next
     i=i+1
-    iconf(i,:)=p%iconf
+    iconf(:,i)=p%iconf
     deg(i)=p%deg
   end do
   p=>head
