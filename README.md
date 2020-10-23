@@ -19,7 +19,7 @@
 - If you have any questions, suggestions, and problems regarding ***`disorder`***, please feel free to contact me.
 
 ## 1.5. How to Cite
-- Please cite the following articles when you use ***`disorder`***：\
+- We would appreciate if you cite in your research with ***`disorder`***：\
 [1] J.-C. Lian, H.-Y. Wu, W.-Q. Huang, W. Hu, and G.-F. Huang, [Phys. Rev. B **102**, 134209 (2020)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.102.134209).\
 [2] A. Togo, I. Tanaka, Spglib: a software library for crystal symmetry search, [arXiv:1808.01590 (2018)](https://arxiv.org/abs/1808.01590).
 
