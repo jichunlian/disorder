@@ -90,6 +90,7 @@ subroutine stdout_4(n)
 
   write(fm1,*) width(i_4=n)
   write(*,'(A,I'//fm1//',A,/)') '  Found ',n,' irreducible configurations'
+  return
 end subroutine stdout_4
 
 subroutine stdout_5(time)
@@ -102,6 +103,15 @@ subroutine stdout_5(time)
   s=time-h*3600-m*60
   write(*,'(A,I2.2,A,I2.2,A,I2.2,A,/)') '  Program finished !    Elapsed time : ',&
        h,' hour ',m,' min ',s,' sec'
+
+  write(*,'(A)') '+----------------------------------------------------------+'
+  write(*,'(A)') '|                     * How to Site ? *                    |'
+  write(*,'(A)') '| Please Cite The Following Article When You Use disorder: |'
+  write(*,'(A)') '| [1] J.-C. Lian, H.-Y. Wu, W.-Q. Huang, W. Hu, and G.-F.  |'
+  write(*,'(A)') '|     Huang, Phys. Rev. B, 102, 134209 (2020).             |'
+  write(*,'(A)') '+----------------------------------------------------------+'
+  write(*,*)
+  return
 end subroutine stdout_5
 
 subroutine stderr(massage)
