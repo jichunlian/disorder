@@ -18,9 +18,9 @@
 - Ji-Chun Lian (jichunlian@hnu.edu.cn), Department of Applied Physics, School of Physics and Electronics, Hunan University, Changsha, China
 - If you have any questions, suggestions, and problems regarding ***`disorder`***, please feel free to contact me.
 
-## 1.4. How to Cite
-- Please cite the following article when you use ***`disorder`***：
-- J.-C. Lian, H.-Y. Wu, W.-Q. Huang, W. Hu, and G.-F. Huang, Algorithm for generating irreducible site-occupancy configurations, [Phys. Rev. B **102**, 134209 (2020)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.102.134209).
+## 1.5. How to Cite
+- Please cite the following article when you use ***`disorder`***：\
+J.-C. Lian, H.-Y. Wu, W.-Q. Huang, W. Hu, and G.-F. Huang, [Phys. Rev. B **102**, 134209 (2020)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.102.134209).
 
 
 # 2. Compiling
