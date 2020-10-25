@@ -104,12 +104,12 @@ subroutine stdout_5(time)
   write(*,'(A,I2.2,A,I2.2,A,I2.2,A,/)') '  Program finished !    Elapsed time : ',&
        h,' hour ',m,' min ',s,' sec'
 
-  write(*,'(A)') '+----------------------------------------------------------+'
-  write(*,'(A)') '|                     * How to Site ? *                    |'
-  write(*,'(A)') '| Please Cite The Following Article When You Use disorder: |'
-  write(*,'(A)') '| [1] Ji-Chun Lian, Hong-Yu Wu, Wei-Qing Huang, Wangyu Hu, |'
-  write(*,'(A)') '|     and Gui-Fang Huang, Phys. Rev. B 102, 134209 (2020). |'
-  write(*,'(A)') '+----------------------------------------------------------+'
+  write(*,'(A)') ' +----------------------------------------------------------+'
+  write(*,'(A)') ' |                     * How to Site ? *                    |'
+  write(*,'(A)') ' | Please Cite The Following Article When You Use disorder: |'
+  write(*,'(A)') ' | [1] Ji-Chun Lian, Hong-Yu Wu, Wei-Qing Huang, Wangyu Hu, |'
+  write(*,'(A)') ' |     and Gui-Fang Huang, Phys. Rev. B 102, 134209 (2020). |'
+  write(*,'(A)') ' +----------------------------------------------------------+'
   write(*,*)
   return
 end subroutine stdout_5
