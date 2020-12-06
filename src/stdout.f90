@@ -11,9 +11,9 @@ subroutine stdout_0
   write(*,*) "  __| (_)___  ___  _ __ __| | ___ _ __ "
   write(*,*) " / _` | / __|/ _ \| '__/ _` |/ _ \ '__|"
   write(*,*) "| (_| | \__ \ (_) | | | (_| |  __/ |   "
-  write(*,*) " \__,_|_|___/\___/|_|  \__,_|\___|_|  "
-  call system('printf "      `date +%F\ %H:%M:%S`"')
-  write(*,*) "     0.5.1"
+  write(*,*) " \__,_|_|___/\___/|_|  \__,_|\___|_|   "
+  call system('printf "    `date +%F\ %H:%M:%S`"')
+  write(*,*) "  0.5.2-VASP"
   write(*,*)
   return
 end subroutine stdout_0
@@ -114,11 +114,11 @@ subroutine stdout_5(time)
   return
 end subroutine stdout_5
 
-subroutine stderr(massage)
+subroutine stderr(message)
   implicit none
-  character(len=*) massage
+  character(len=*) message
 
-  write(*,'(/,2X,A)') massage
+  write(*,'(/,2X,A)') message
   write(*,*) '   _____ ____  ____   ___  ____  '
   write(*,*) '  | ____|  _ \|  _ \ / _ \|  _ \ '
   write(*,*) '  |  _| | |_) | |_) | | | | |_) |'
