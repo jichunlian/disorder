@@ -24,12 +24,12 @@ program disorder
   nsub=2
   site=1
   prec=1D-4
-  lspg=.TRUE.
-  lcfg=.TRUE.
-  leqa=.FALSE.
-  lpos=.FALSE.
-  lpro=.FALSE.
-  fast=.FALSE.
+  lcfg=.true.
+  lspg=.false.
+  leqa=.false.
+  lpos=.false.
+  lpro=.false.
+  fast=.false.
 ! End setting
 
   allocate(subs(5))
