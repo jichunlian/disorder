@@ -57,7 +57,7 @@ make clean        # rm *.mod *.o
   lpro = logical                    # Whether to display the progress bar (Default .false.)
   lpos = logical                    # Whether to output the POSCAR-x... files (Default .false.)
   leqa = logical                    # Whether to output the EQAMAT file (Default .false.)
-  lspg = logical                    # Whether to output the SPGMAT file (Default .true.)
+  lspg = logical                    # Whether to output the SPGMAT file (Default .false.)
   lcfg = logical                    # Whether to output the CFGMAT file (Default .true.)
 /                                   # Terminator
 ```
