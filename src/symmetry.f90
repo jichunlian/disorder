@@ -76,7 +76,7 @@ subroutine rotation(eqamat,rot,tra,a,x,natom,symprec)
   integer(2),allocatable :: eqamat(:,:)
   real(8) :: a(3,3),x(:,:),symprec
   integer(2) :: natom(:),satom
-  real(8) :: G(3,3),dG(3,3),x_t(3),T(3),dx(3),c(3)
+  real(8) :: G(3,3),x_t(3),T(3),dx(3),c(3)
   real(8),allocatable :: tra(:,:),tra_t(:,:)
   integer(1) :: W11,W12,W13,W21,W22,W23,W31,W32,W33
   integer(1) :: W(3,3),rot_t(3,3,48)
@@ -99,8 +99,7 @@ subroutine rotation(eqamat,rot,tra,a,x,natom,symprec)
                     W(2,:)=(/ W21, W22, W23 /)
                     W(3,:)=(/ W31, W32, W33 /)
                     if ( abs(det(W)) == 1 ) then
-                      dG=dabs(G-matmul(matmul(transpose(W),G),W))
-                      if ( all(dG < symprec) ) then
+                      if ( metric() == .true. ) then
                         n=n+1
                         rot_t(:,:,n)=W
                       end if
@@ -181,6 +180,34 @@ subroutine rotation(eqamat,rot,tra,a,x,natom,symprec)
     end do
   end do
   return
+contains
+
+function metric()
+  implicit none
+  logical(1) :: metric
+  real(8) :: H(3,3),D(3),A(3),B(3)
+  integer(1) :: i,j
+
+  metric=.true.
+  H=matmul(matmul(transpose(W),G),W)
+  forall(i=1:3)
+    A(i)=dsqrt(G(i,i))
+    B(i)=dsqrt(H(i,i))
+    D(i)=dabs(A(i)-B(i))
+  end forall
+  if ( any(D > symprec) ) then
+    metric=.false.
+    return
+  end if
+  forall(i=1:3,j=1:3,i>j) D(i+j-2)=0.25D0*(A(i)+B(i))*(A(j)+B(j)) &
+  *(dsin(dacos(G(i,j)/(A(i)*A(j)))-dacos(H(i,j)/(B(i)*B(j)))))**2
+  if ( any(D > symprec**2) ) then
+    metric=.false.
+    return
+  end if
+  return
+end function metric
+
 end subroutine rotation
 
 subroutine translation(eqamat,tra,a,x,natom,symprec)
@@ -434,7 +461,7 @@ subroutine pointgroup(rot,cls,sys)
       sys='Cubic'
       cls='O_h (m-3m)'
     case default
-      call stderr("ERROR : Can't Find Point Group !")
+      call stderr("Cannot find the point group, try modify PREC tag !")
   end select
   return
 end subroutine pointgroup
