@@ -8,6 +8,6 @@
   lpro = .true.
 ! lpos = .true.
 ! leqa = .true.
-! lspg = .false.
+! lspg = .true.
 ! lcfg = .false.
 /
