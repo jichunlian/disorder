@@ -3,11 +3,11 @@
   subs = 2,70
   symb = Kw,O
   site = 2
-  prec = 1D-3
+  prec = 1D-4
 ! fast = .true.
   lpro = .true.
 ! lpos = .true.
 ! leqa = .true.
-! lspg = .false.
+! lspg = .true.
 ! lcfg = .false.
 /
