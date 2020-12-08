@@ -23,7 +23,7 @@ program disorder
 ! Setting default value
   nsub=2
   site=1
-  prec=1D-4
+  prec=1D-5
   lcfg=.true.
   lspg=.false.
   leqa=.false.
@@ -41,7 +41,7 @@ program disorder
   close(10)
   if ( io_err /= 0 ) call stderr('The error occurred while reading the INDSOD file !')
   if ( nsub > 5 .or. nsub < 2 ) call stderr('NSUB needs to be between 2 and 5 !')
-  if ( prec > 1D-2 .or. prec < 1D-6 ) call stderr('PREC is recommended between 1D-6 and 1D-2')
+  if ( prec > 1D-2 ) call stderr('PREC is recommended no greater than 1D-2 !')
   allocate(k(nsub))
   allocate(symbols(nsub))
   k=subs(1:nsub)
