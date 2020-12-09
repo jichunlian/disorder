@@ -22,3 +22,5 @@
 ## How to Cite
 - Please Cite The Following Article When You Use ***disorder***：\
 [1] J.-C. Lian, H.-Y. Wu, W.-Q. Huang, W. Hu, and G.-F. Huang, [Phys. Rev. B **102**, 134209 (2020)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.102.134209).
+
+- If you want to understand the algorithm implemented in **disorder***, you can read this reference carefully. After several updates, as an aside, the latest version of  disorder possesses better time and space complexity than the original algorithm described in this reference, but the key concept is consistent.
