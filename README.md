@@ -1,5 +1,6 @@
 ## What is ***disorder*** ?
-- ***disorder*** is an open source software designed for generating irreducible site-occupancy configurations (i.e., symmetrically inequivalent disordered structures), which can be used for disordered doping, including substitution doping and vacancy doping.
+- ***disorder*** is an open source software designed for generating irreducible site-occupancy configurations (i.e., symmetrically inequivalent disordered crystal structures), which can be used for disordered doping, including substitution doping and vacancy doping. The disorder code works for arbitrary parent cells with any supercell expansion matrix, and for any number of atomic types with arbitrary stoichiometry. Most important, a linear scale of run time with the number of irreducible configurations is achieved, which is the best possible scaling for this type of problem.
+
 
 ## Features
 - Build supercell form arbitrary input cell with any supercell expansion matrix.
