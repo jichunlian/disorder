@@ -22,7 +22,8 @@ subroutine readpos(a,x,symbol,natom,poscar)
   a=scal*a
   read(10,*)
   ntype=1
-  do while (io_error <= 0)
+  io_error=0
+  do while (io_error == 0)
     allocate(natom(ntype))
     read(10,*,iostat=io_error) natom
     ntype=ntype+1

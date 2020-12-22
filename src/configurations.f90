@@ -95,7 +95,7 @@ subroutine fast_mode
     nd(l)=n
     do i=1,ne(2,l)
       o=o+1
-      if ( occ(i) == .false. ) cycle
+      if ( occ(i) .eqv. .false. ) cycle
       ic=i+ne(1,l)-1
       call int2conf(ic,aconf,lconf,E,mc,na,ns,ncm,nk,k,m)
       n=n+1
@@ -112,7 +112,7 @@ subroutine fast_mode
         call sort(oconf(1:k(1)),1_2,k(1))
         call conf2int(ic,oconf,lconf,E,wc,na,ns,nc,nk,k)
         ic=ic-ne(1,l)+1
-        if ( occ(ic) == .true. ) then
+        if ( occ(ic) .eqv. .true. ) then
           p%deg=p%deg+1
           occ(ic)=.false.
         end if
@@ -130,7 +130,7 @@ subroutine std_mode
   occ=.true.
   call prog%set(num=nc)
   do i=1,nc
-    if ( occ(i) == .false. ) cycle
+    if ( occ(i) .eqv. .false. ) cycle
     call int2conf(i,aconf,lconf,E,mc,na,ns,ncm,nk,k,m)
     n=n+1
     if ( lpro .and. mod(n,100) == 0 ) call prog%put(i)
@@ -143,7 +143,7 @@ subroutine std_mode
       oconf=eqamat(j,aconf)
       call sort(oconf(1:k(1)),1_2,k(1))
       call conf2int(ic,oconf,lconf,E,wc,na,ns,nc,nk,k)
-      if ( occ(ic) == .true. ) then
+      if ( occ(ic) .eqv. .true. ) then
         p%deg=p%deg+1
         occ(ic)=.false.
       end if
@@ -235,12 +235,12 @@ subroutine neqatom(neqa,ne,eqamat,E,na,nc,wc,k,fast,ldeg)
   neqa_t=0
   deg=0
   do i=1,na
-    if ( occ(i) == .false. ) cycle
+    if ( occ(i) .eqv. .false. ) cycle
     n=n+1
     neqa_t(n)=i
     do j=1,no
       ic=eqamat(j,i)
-      if ( occ(ic) == .true. ) then
+      if ( occ(ic) .eqv. .true. ) then
         deg(n)=deg(n)+1
         occ(ic)=.false.
       end if

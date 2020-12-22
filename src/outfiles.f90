@@ -96,13 +96,13 @@ subroutine outconfig(iconf,deg,k)
   nk=size(k)
   open(13,file='CFGMAT')
   do i=1,nc
-    write(13,'(I10,I6\)') i,deg(i)
+    write(13,'(I10,I6,$)') i,deg(i)
     ibegin=1
     iend=0
     do j=1,nk-1
       iend=iend+k(j)
       write(fm,*) k(j)
-      write(13,'(2X,'//fm//'I4\)') iconf(ibegin:iend,i)
+      write(13,'(2X,'//fm//'I4,$)') iconf(ibegin:iend,i)
       ibegin=ibegin+k(j)
     end do
     write(13,*)

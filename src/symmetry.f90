@@ -99,7 +99,7 @@ subroutine rotation(eqamat,rot,tra,a,x,natom,symprec)
                     W(2,:)=(/ W21, W22, W23 /)
                     W(3,:)=(/ W31, W32, W33 /)
                     if ( abs(det(W)) == 1 ) then
-                      if ( metric() == .true. ) then
+                      if ( metric() .eqv. .true. ) then
                         n=n+1
                         rot_t(:,:,n)=W
                       end if
@@ -139,7 +139,7 @@ subroutine rotation(eqamat,rot,tra,a,x,natom,symprec)
             exit
           end if
         end do
-        if ( discard == .true. ) then
+        if ( discard .eqv. .true. ) then
           exit
         end if        
         if ( m == sum(natom(1:k)) .and. m /= satom ) then
@@ -148,7 +148,7 @@ subroutine rotation(eqamat,rot,tra,a,x,natom,symprec)
           n2=n2+natom(k)
         end if
       end do
-      if ( discard == .false. ) then
+      if ( discard .eqv. .false. ) then
         num=num+1
         rot_t(:,:,num)=W
         tra_t(:,num)=T
@@ -242,7 +242,7 @@ subroutine translation(eqamat,tra,a,x,natom,symprec)
           exit
         end if
       end do
-      if ( discard == .true. ) then
+      if ( discard .eqv. .true. ) then
         exit
       end if        
       if ( m == sum(natom(1:k)) .and. m /= satom ) then
@@ -251,7 +251,7 @@ subroutine translation(eqamat,tra,a,x,natom,symprec)
         n2=n2+natom(k)
       end if
     end do
-    if ( discard == .false. ) then
+    if ( discard .eqv. .false. ) then
       num=num+1
       tra_t(:,num)=T
     end if
