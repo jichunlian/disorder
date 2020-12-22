@@ -1,7 +1,7 @@
 &input
   nsub = 2
   subs = 8,24
-  symb = Sn,Pb
+  symb = 'Sn','Pb'
   site = 2
   prec = 1D-5
 ! fast = .true.
