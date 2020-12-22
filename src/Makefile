@@ -1,4 +1,4 @@
-FC = gfortran
+FC = ifort
 
 all: disorder supercell
 
