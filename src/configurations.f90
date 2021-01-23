@@ -45,6 +45,7 @@ subroutine irrconfig(iconf,deg,eqamat,k,lpro,fast)
   nullify(head%next)
   p=>head
   n=0
+  fast=.false.
   if ( fast ) then
     call fast_mode
   else
