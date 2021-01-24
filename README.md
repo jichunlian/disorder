@@ -1,4 +1,4 @@
-## Announcement
+## ChangeLog
 - We have temporarily disabled the ***Fast Mode*** due to some unknown bugs ! (2020-01-23)
 - Now, the bugs have been fixed ! (2020-01-24)
 
