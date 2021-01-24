@@ -224,7 +224,7 @@ subroutine neqatom(neqa,ne,eqamat,E,na,nc,wc,k,fast,ldeg)
   integer(2) :: eqamat(:,:)
   integer(8) :: E(:,:),wc,nc,m
   integer(8),allocatable :: ne(:,:)
-  integer(2) :: no,na,i,j,ic,neqa_t(na),deg(na),k,n,lc
+  integer(2) :: no,na,i,j,ic,neqa_t(na),deg(na),k,n,lc,nj
   integer(2),allocatable :: neqa(:)
   logical(1) :: occ(na),fast,ldeg
 
@@ -271,19 +271,21 @@ subroutine neqatom(neqa,ne,eqamat,E,na,nc,wc,k,fast,ldeg)
     allocate(ne(2,n))
     ne(1,1)=1
     m=0
+    nj=size(E,2)-k
     do j=1,k  
-      m=m+E(lc-1,j)
+      m=m+E(lc-1,nj+j)
     end do
-    ne(2,1)=nc-m  
+    ne(2,1)=nc-m
+    
     do i=2,n
       m=0
       do j=1,k
-        m=m+E(lc-neqa(i)+1,j)
+        m=m+E(lc-neqa(i)+1,nj+j)
       end do
       ne(1,i)=nc-m
       m=0
       do j=1,k
-        m=m+E(lc-neqa(i),j)
+        m=m+E(lc-neqa(i),nj+j)
       end do
       if ( lc == neqa(i) ) m=-1
       ne(2,i)=nc-m
