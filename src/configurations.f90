@@ -16,7 +16,7 @@ subroutine irrconfig(iconf,deg,eqamat,k,lpro,fast)
   integer(2) :: eqamat(:,:),k(:)
   integer(2),allocatable :: aconf(:),oconf(:)
   integer(8),allocatable :: ncm(:),mc(:),wc(:),E(:,:),ne(:,:)
-  integer(2),allocatable :: lconf(:),m(:),neqa(:),nd(:)
+  integer(2),allocatable :: lconf(:),m(:),neqa(:)
   integer(1) :: nk
   integer(2) :: na,no,ns,j,l,nl
   integer(4) :: n
@@ -37,7 +37,7 @@ subroutine irrconfig(iconf,deg,eqamat,k,lpro,fast)
   call initial(lconf,nc,ncm,wc,mc,m,k)
   if ( nc < 0 ) call stderr('The number of atomic configurations is out-of-range !')
   call matrixE(E,k,m)
-!  call neqatom(neqa,ne,eqamat,E,na,ncm(1),wc(1),k(1),fast,ldeg)
+  call neqatom(neqa,ne,eqamat,E,na,ncm(1),wc(1),k(1),fast,ldeg)
   call stdout_3(nc)
   allocate(aconf(ns))
   allocate(oconf(ns))
@@ -45,7 +45,6 @@ subroutine irrconfig(iconf,deg,eqamat,k,lpro,fast)
   nullify(head%next)
   p=>head
   n=0
-  fast=.false.
   if ( fast ) then
     call fast_mode
   else
@@ -88,12 +87,10 @@ subroutine fast_mode
   o=0
   se=sum(ne(2,:))
   nl=size(neqa)
-  allocate(nd(nl))
   call prog%set(num=se)
   do l=1,nl
     allocate(occ(ne(2,l)))
     occ=.true.
-    nd(l)=n
     do i=1,ne(2,l)
       o=o+1
       if ( occ(i) .eqv. .false. ) cycle
@@ -287,6 +284,7 @@ subroutine neqatom(neqa,ne,eqamat,E,na,nc,wc,k,fast,ldeg)
       do j=1,k
         m=m+E(lc-neqa(i),j)
       end do
+      if ( lc == neqa(i) ) m=-1
       ne(2,i)=nc-m
     end do
     ne(2,:)=ne(2,:)-ne(1,:)
