@@ -1,6 +1,6 @@
 ## ChangeLog
 - We have temporarily disabled the ***Fast Mode*** due to some unknown bugs ! (2020-01-23)
-- Now, the bugs have been fixed ! (2020-01-24)
+- The bugs have been fixed, and the ***Fast Mode*** is re-enabled ! (2020-01-24)
 
 ## What is ***disorder*** ?
 - ***disorder*** is an open source software designed for generating irreducible site-occupancy configurations (i.e., symmetrically inequivalent disordered crystal structures), which can be used for disordered doping, including substitution doping and vacancy doping.
