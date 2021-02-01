@@ -37,7 +37,7 @@ subroutine irrconfig(iconf,deg,eqamat,k,lpro,fast)
   call initial(lconf,nc,ncm,wc,mc,m,k)
   if ( nc < 0 ) call stderr('The number of atomic configurations is out-of-range !')
   call matrixE(E,k,m)
-!  call neqatom(neqa,ne,eqamat,E,na,ncm(1),wc(1),k(1),fast,ldeg)
+  call neqatom(neqa,ne,eqamat,E,na,ncm(1),wc(1),k(1),fast,ldeg)
   call stdout_3(nc)
   allocate(aconf(ns))
   allocate(oconf(ns))
@@ -45,7 +45,7 @@ subroutine irrconfig(iconf,deg,eqamat,k,lpro,fast)
   nullify(head%next)
   p=>head
   n=0
-  fast=.false.
+!  fast=.false.
   if ( fast ) then
     call fast_mode
   else
