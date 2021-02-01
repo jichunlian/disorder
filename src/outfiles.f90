@@ -124,7 +124,7 @@ subroutine outposcar(a,x,atom,natom,symbols,k,site,iconf)
   integer(1) :: ntype,ntype_new,nd,nk,nKw,j
   integer(2) :: na,na0,na1,na2,na_new,n
   integer(8) :: nc,i
-  character(len=20) :: fm,tail,poscar
+  character(len=30) :: fm,tail,poscar
 
   na0=natom(site)
   allocate(nx0(na0))
