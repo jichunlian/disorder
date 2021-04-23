@@ -40,7 +40,12 @@ subroutine readpos(a,x,symbol,natom,poscar)
   satom=sum(natom)
   allocate(x(3,satom))
   read(10,*) coordinate
-  read(10,*) x
+  if ( coordinate == 'S' ) then
+    read(10,*) coordinate
+  end if
+  do i=1,satom
+    read(10,*) x(:,i)
+  end do
   close(10)
   if ( coordinate == 'C' ) then
     x=matmul(inverse(a),x)
@@ -51,7 +56,7 @@ end subroutine readpos
 subroutine writepos(a,x,symbol,natom,poscar)
   implicit none
   real(8) :: a(3,3),x(:,:)
-  integer(2) :: natom(:),na,i
+  integer(2) :: natom(:),satom,i
   integer(1) :: ntype
   character(len=2) :: symbol(:),fm
   character(len=*) :: poscar
@@ -67,8 +72,8 @@ subroutine writepos(a,x,symbol,natom,poscar)
   write(11,'('//fm//'A6)') symbol
   write(11,'('//fm//'I6)') natom
   write(11,'(A6)') 'Direct'
-  na=sum(natom)
-  do i=1,na
+  satom=sum(natom)
+  do i=1,satom
     write(11,'(3F20.16)') x(:,i)
   end do
   close(11)
