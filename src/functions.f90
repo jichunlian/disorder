@@ -2,6 +2,26 @@ module functions
   implicit none
 contains
 
+subroutine random(a,n)
+  implicit none
+  integer(8) :: a(:),n
+  integer(8) :: b(n),i,j,na,m
+  real(8) :: rand
+
+  na=size(a)
+  forall(i=1:n) b(i)=i
+  call random_seed()
+  m=n
+  do i=1,na
+    call random_number(rand)
+    j=rand*m+1
+    a(i)=b(j)
+    b(j)=b(m)
+    m=m-1
+  end do
+  return
+end subroutine random
+
 function binsearch(n,a)
   implicit none
   integer(2) :: binsearch,left,right,mid

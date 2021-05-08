@@ -3,13 +3,13 @@ module outfiles
   implicit none
 contains
 
-subroutine output(eqamat,leqa,spgmat,lspg,iconf,deg,k,lcfg,a,x,atom,natom,symbols,site,lpos)
+subroutine output(eqamat,leqa,spgmat,lspg,iconf,deg,k,lcfg,a,x,atom,natom,symbols,site,lpos,lsep)
   implicit none
   integer(2) :: eqamat(:,:),iconf(:,:),deg(:)
   integer(2) :: k(:),natom(:)
   integer(1) :: site
   real(8) :: spgmat(:,:,:),a(:,:),x(:,:)
-  logical(1) :: leqa,lspg,lcfg,lpos
+  logical(1) :: leqa,lspg,lcfg,lpos,lsep
   character(len=2) :: atom(:),symbols(:)
 
   write(*,'(A,$)') '  Writing output files :'
@@ -34,7 +34,7 @@ subroutine output(eqamat,leqa,spgmat,lspg,iconf,deg,k,lcfg,a,x,atom,natom,symbol
   call system('rm -r poscar/ 2> /dev/null')
   if ( lpos ) then
     write(*,'(A,$)') '  POSCAR'
-    call outposcar(a,x,atom,natom,symbols,k,site,iconf)
+    call outposcar(a,x,atom,natom,symbols,k,site,iconf,lsep)
   end if
   write(*,'(/)')
 
@@ -111,7 +111,7 @@ subroutine outconfig(iconf,deg,k)
   return
 end subroutine outconfig
 
-subroutine outposcar(a,x,atom,natom,symbols,k,site,iconf)
+subroutine outposcar(a,x,atom,natom,symbols,k,site,iconf,lsep)
   use structure
   implicit none
   real(8) :: a(3,3),x(:,:)
@@ -124,7 +124,8 @@ subroutine outposcar(a,x,atom,natom,symbols,k,site,iconf)
   integer(1) :: ntype,ntype_new,nd,nk,nKw,j
   integer(2) :: na,na0,na1,na2,na_new,n
   integer(8) :: nc,i
-  character(len=30) :: fm,tail,poscar
+  character(len=20) :: fm,tail,poscar,systems
+  logical(1) :: lsep
 
   na0=natom(site)
   allocate(nx0(na0))
@@ -199,8 +200,13 @@ subroutine outposcar(a,x,atom,natom,symbols,k,site,iconf)
     x_new(:,1:na1)=x1
     x_new(:,na1+1:)=x2
     write(tail,'(I'//fm//'.'//fm//')') i
-    poscar='poscar/POSCAR-'//tail//''
-    call writepos(a,x_new,atom_new,natom_new,poscar)
+    systems='POSCAR-'//tail//''
+    if ( lsep .eqv. .true. ) then
+      poscar='poscar/'//systems//''
+    else
+      poscar='poscar/POSCAR'
+    end if
+    call writepos(a,x_new,atom_new,natom_new,poscar,systems)
   end do
   return
 end subroutine outposcar

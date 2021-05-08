@@ -1,12 +1,14 @@
 &input
   nsub = 3
   subs = 2,2,32
-  symb = 'S','Se','Te'
+  symb = S,Se,Te
   site = 1
   prec = 1D-5
   fast = .true.
+  cmax = 0
   lpro = .true.
 ! lpos = .true.
+! lsep = .false.
 ! leqa = .true.
 ! lspg = .true.
 ! lcfg = .false.

@@ -77,5 +77,5 @@ program supercell
   a(1,3)=lc*cosr
   a(2,3)=(lc*cosb-a(1,3)*cosa)/sina
   a(3,3)=dsqrt(lc**2-a(1,3)**2-a(2,3)**2)
-  call writepos(a,xs,atom,natom,'SPOSCAR') 
+  call writepos(a,xs,atom,natom,'SPOSCAR','SPOSCAR') 
 end program supercell

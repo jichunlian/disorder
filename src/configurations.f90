@@ -3,7 +3,7 @@ module configurations
   implicit none
 contains
 
-subroutine irrconfig(iconf,deg,eqamat,k,lpro,fast)
+subroutine irrconfig(iconf,deg,eqamat,k,lpro,fast,cmax)
   use progress
   use stdout
   implicit none
@@ -20,7 +20,7 @@ subroutine irrconfig(iconf,deg,eqamat,k,lpro,fast)
   integer(1) :: nk
   integer(2) :: na,no,ns,j,l,nl
   integer(4) :: n
-  integer(8) :: i,nc,ic,se,o
+  integer(8) :: i,nc,ic,se,o,cmax
   logical(1),allocatable :: occ(:)
   logical(1) :: lpro,fast,ldeg
   type(cls_prog) :: prog
@@ -80,6 +80,7 @@ subroutine irrconfig(iconf,deg,eqamat,k,lpro,fast)
       deg=-1
     end if
   end if
+  if ( cmax > 0 .and. cmax < n ) call randconf(iconf,deg,cmax)
   return
 contains
 
@@ -272,11 +273,11 @@ subroutine neqatom(neqa,ne,eqamat,E,na,nc,wc,k,fast,ldeg)
     ne(1,1)=1
     m=0
     nj=size(E,2)-k
-    do j=1,k  
+    do j=1,k
       m=m+E(lc-1,nj+j)
     end do
     ne(2,1)=nc-m
-    
+
     do i=2,n
       m=0
       do j=1,k
@@ -415,5 +416,29 @@ function combconf(ic,nc,E,n,k,lconf)
   combconf=lconf-combconf+1
   return
 end function combconf
+
+subroutine randconf(iconf,deg,cmax)
+  implicit none
+  integer(2),allocatable :: iconf(:,:),deg(:)
+  integer(2),allocatable :: iconf_t(:,:),deg_t(:)
+  integer(8),allocatable :: a(:)
+  integer(8) :: nc,ns,cmax
+
+  nc=size(iconf,2)
+  ns=size(iconf,1)
+  allocate(iconf_t(ns,nc))
+  allocate(deg_t(nc))
+  iconf_t=iconf
+  deg_t=deg
+  deallocate(iconf)
+  deallocate(deg)
+  allocate(iconf(ns,cmax))
+  allocate(deg(cmax))
+  allocate(a(cmax))
+  call random(a,nc)
+  iconf=iconf_t(:,a)
+  deg=deg_t(a)
+  return
+end subroutine randconf
 
 end module configurations

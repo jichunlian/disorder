@@ -32,4 +32,4 @@ stdout.o: stdout.f90 functions.o
 	$(FC) -c stdout.f90
 
 clean:
-	rm *.mod *.o
+	rm *.mod *.o disorder supercell

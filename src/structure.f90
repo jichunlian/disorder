@@ -53,16 +53,16 @@ subroutine readpos(a,x,symbol,natom,poscar)
   return
 end subroutine readpos
 
-subroutine writepos(a,x,symbol,natom,poscar)
+subroutine writepos(a,x,symbol,natom,poscar,systems)
   implicit none
   real(8) :: a(3,3),x(:,:)
   integer(2) :: natom(:),satom,i
   integer(1) :: ntype
   character(len=2) :: symbol(:),fm
-  character(len=*) :: poscar
+  character(len=*) :: poscar,systems
 
-  open(11,file=poscar)
-  write(11,'(A)') trim(poscar)
+  open(11,file=poscar,access='append')
+  write(11,'(A)') trim(systems)
   write(11,'(A)') '   1.00000000000000'
   write(11,'(1X,3F22.16)') a(:,1)
   write(11,'(1X,3F22.16)') a(:,2)
@@ -76,6 +76,7 @@ subroutine writepos(a,x,symbol,natom,poscar)
   do i=1,satom
     write(11,'(3F20.16)') x(:,i)
   end do
+  write(11,*)
   close(11)
   return
 end subroutine writepos
