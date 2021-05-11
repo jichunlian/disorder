@@ -71,11 +71,7 @@ subroutine irrconfig(iconf,deg,eqamat,k,lpro,fast)
   end do
   if ( fast ) then
     if ( ldeg ) then
-      o=0
-      do i=1,n
-        o=o+deg(i)
-      end do
-      deg=nint(deg*(dble(nc)/o))
+      deg=nint(deg*(dble(nc)/ne(2,1)))
     else
       deg=-1
     end if
