@@ -25,17 +25,17 @@ subroutine eqamatrix(eqamat,spgmat,a,x,natom,symprec,site)
   call translation(eqamat2,tra2,a,x,natom,symprec)
   call spgmatrix(spgmat,rot,tra1,tra2)
   call pointgroup(rot,cls,sys)
-  nr=size(eqamat1,1)
-  nt=size(eqamat2,1)
+  nr=size(eqamat1,2)
+  nt=size(eqamat2,2)
   satom=sum(natom)
   no=nr*nt
   call stdout_2(no,nr,nt,cls,sys)
-  allocate(eqamat3(no,satom))
+  allocate(eqamat3(satom,no))
   n=0
   do i=1,nr
     do j=1,nt
       n=n+1
-      eqamat3(n,:)=eqamat2(j,eqamat1(i,:))
+      eqamat3(:,n)=eqamat2(eqamat1(:,i),j)
     end do
   end do
   na=natom(site)
@@ -44,8 +44,8 @@ subroutine eqamatrix(eqamat,spgmat,a,x,natom,symprec,site)
   forall (i=1:na)
     atom(i)=s+i
   end forall
-  allocate(eqamat(no,na))
-  eqamat=eqamat3(:,atom)-s
+  allocate(eqamat(na,no))
+  eqamat=eqamat3(atom,:)-s
   return
 end subroutine eqamatrix
 
@@ -161,7 +161,7 @@ subroutine rotation(eqamat,rot,tra,a,x,natom,symprec)
   allocate(tra(3,num))
   rot=rot_t(:,:,1:num)
   tra=tra_t(:,1:num)
-  allocate(eqamat(num,satom))
+  allocate(eqamat(satom,num))
   do i=1,num
     W=rot(:,:,i)
     T=tra(:,i)
@@ -172,7 +172,7 @@ subroutine rotation(eqamat,rot,tra,a,x,natom,symprec)
         dx=x_t-x(:,k)
         c=dabs(matmul(a,(dx-nint(dx))))
         if ( all(c < symprec) ) then
-          eqamat(i,col)=k
+          eqamat(col,i)=k
           col=col+1
           exit
         end if
@@ -259,7 +259,7 @@ subroutine translation(eqamat,tra,a,x,natom,symprec)
 
   allocate(tra(3,num))
   tra=tra_t(:,1:num)
-  allocate(eqamat(num,satom))
+  allocate(eqamat(satom,num))
   do i=1,num
     T=tra(:,i)
     col=1
@@ -269,7 +269,7 @@ subroutine translation(eqamat,tra,a,x,natom,symprec)
         dx=x_t-x(:,k)
         c=dabs(matmul(a,(dx-nint(dx))))
         if ( all(c < symprec) ) then
-          eqamat(i,col)=k
+          eqamat(col,i)=k
           col=col+1
           exit
         end if

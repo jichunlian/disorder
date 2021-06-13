@@ -47,12 +47,12 @@ subroutine outeqamat(eqamat)
   integer(2) :: no,na,i
   character(len=20) :: fm
 
-  no=size(eqamat,1)
-  na=size(eqamat,2)
+  no=size(eqamat,2)
+  na=size(eqamat,1)
   write(fm,*) na
   open(11,file='EQAMAT')
   do i=1,no
-    write(11,'('//fm//'I4)') eqamat(i,:)
+    write(11,'('//fm//'I4)') eqamat(:,i)
   end do
   close(11)
   return

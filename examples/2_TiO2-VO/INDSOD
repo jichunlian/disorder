@@ -4,7 +4,6 @@
   symb = 'Kw','O'
   site = 2
   prec = 1D-4
-! fast = .true.
   lpro = .true.
 ! lpos = .true.
 ! leqa = .true.

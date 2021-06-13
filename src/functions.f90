@@ -2,15 +2,15 @@ module functions
   implicit none
 contains
 
-function binsearch(n,a)
+function binsearch_2(n,a)
   implicit none
-  integer(2) :: binsearch,left,right,mid
-  integer(8) :: n,a(:)
+  integer(2) :: binsearch_2,left,right,mid
+  integer(2) :: n,a(:)
 
   left=1
   right=size(a)
   if ( n >= a(right) ) then
-    binsearch=right
+    binsearch_2=right
     return
   end if
   do while ( .true. )
@@ -22,9 +22,33 @@ function binsearch(n,a)
       right=mid
     end if
   end do
-  binsearch=mid
+  binsearch_2=mid
   return
-end function binsearch
+end function binsearch_2
+
+function binsearch_8(n,a)
+  implicit none
+  integer(2) :: binsearch_8,left,right,mid
+  integer(8) :: n,a(:)
+
+  left=1
+  right=size(a)
+  if ( n >= a(right) ) then
+    binsearch_8=right
+    return
+  end if
+  do while ( .true. )
+    mid=(left+right)/2
+    if ( left == mid .or. n == a(mid) ) exit
+    if ( n > a(mid) ) then
+      left=mid
+    else
+      right=mid
+    end if
+  end do
+  binsearch_8=mid
+  return
+end function binsearch_8
 
 function nchoosek(n,k)
   implicit none

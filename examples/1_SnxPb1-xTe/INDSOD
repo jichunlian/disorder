@@ -1,13 +1,12 @@
 &input
   nsub = 2
-  subs = 8,24
+  subs = 16,16
   symb = 'Sn','Pb'
   site = 2
   prec = 1D-5
-! fast = .true.
-  lpro = .true.
+! lpro = .true.
 ! lpos = .true.
 ! leqa = .true.
 ! lspg = .true.
-! lcfg = .false.
+  lcfg = .false.
 /

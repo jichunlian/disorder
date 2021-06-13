@@ -1,6 +1,7 @@
 program disorder
   use structure
   use symmetry
+  use groups
   use configurations
   use outfiles
   use stdout
@@ -8,14 +9,14 @@ program disorder
   real(8) :: a(3,3),prec
   real(8),allocatable :: x(:,:)
   integer(2),allocatable :: natom(:),k(:),subs(:)
-  integer(2),allocatable :: eqamat(:,:)
+  integer(2),allocatable :: eqamat(:,:),group(:)
   integer(2),allocatable :: iconf(:,:),deg(:)
   real(8),allocatable :: spgmat(:,:,:)
   integer(1) :: site,nsub,io_err,i
   real(4) :: time0,time1
-  logical(1) :: alive,leqa,lspg,lcfg,lpos,lpro,fast
+  logical(1) :: alive,leqa,lspg,lcfg,lpos,lpro
   character(len=2),allocatable :: symbols(:),symb(:),atom(:)
-  namelist /input/ nsub,subs,symb,prec,site,leqa,lspg,lcfg,lpos,lpro,fast
+  namelist /input/ nsub,subs,symb,prec,site,leqa,lspg,lcfg,lpos,lpro
 
   call cpu_time(time0)
   call stdout_0
@@ -29,7 +30,6 @@ program disorder
   leqa=.false.
   lpos=.false.
   lpro=.false.
-  fast=.false.
 ! End setting
 
   allocate(subs(5))
@@ -57,7 +57,8 @@ program disorder
   if ( sum(k) /= natom(site) ) call stderr('The sum of SUBS is incorrect !')
   call stdout_1(natom,atom,site,k,symbols)
   call eqamatrix(eqamat,spgmat,a,x,natom,prec,site)
-  call irrconfig(iconf,deg,eqamat,k,lpro,fast)
+  call grouping(group,eqamat,k(1),natom(site),a,x,atom,natom,site)
+  call irrconfig(iconf,deg,eqamat,group,k,lpro)
   call output(eqamat,leqa,spgmat,lspg,iconf,deg,k,lcfg,a,x,atom,natom,symbols,site,lpos) 
   call cpu_time(time1)
   call stdout_5(nint(time1-time0))

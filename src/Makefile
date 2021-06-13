@@ -2,7 +2,8 @@ FC = ifort
 
 all: disorder supercell
 
-disorder: disorder.f90 stdout.o functions.o structure.o symmetry.o progress.o configurations.o outfiles.o
+disorder: disorder.f90 stdout.o functions.o structure.o symmetry.o \
+          groups.o progress.o configurations.o outfiles.o
 	$(FC) -o disorder disorder.f90 *.o
 	cp disorder ../bin/
 
@@ -19,6 +20,9 @@ structure.o: structure.f90 functions.o
 symmetry.o: symmetry.f90 functions.o stdout.o
 	$(FC) -c symmetry.f90
 
+groups.o: groups.f90 structure.o
+	$(FC) -c groups.f90
+
 progress.o: progress.f90
 	$(FC) -c progress.f90
 
@@ -32,4 +36,4 @@ stdout.o: stdout.f90 functions.o
 	$(FC) -c stdout.f90
 
 clean:
-	rm *.mod *.o
+	rm *.mod *.o disorder supercell
