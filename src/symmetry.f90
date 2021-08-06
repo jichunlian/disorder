@@ -461,7 +461,7 @@ subroutine pointgroup(rot,cls,sys)
       sys='Cubic'
       cls='O_h (m-3m)'
     case default
-      call stderr("Cannot find the point group, try modify PREC tag !")
+      call stderr("Cannot find a point group, try modifying PREC tag !")
   end select
   return
 end subroutine pointgroup
