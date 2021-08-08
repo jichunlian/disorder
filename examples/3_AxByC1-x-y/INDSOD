@@ -1,7 +1,7 @@
 &input
   nsub = 3
   subs = 6,6,6
-  symb = 'A','B','C'
+  symb = A,B,C
   site = 1
   prec = 1D-5
   lpro = .true.
