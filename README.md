@@ -1,5 +1,5 @@
 ## What is ***disorder*** ?
-- ***disorder*** is an open source software designed for generating irreducible site-occupancy configurations (i.e., symmetrically inequivalent disordered structures), which allows extremely efficient modeling of multicomponent alloys and/or lattice defects (e.g., substitutions and vacancies).
+- ***disorder*** is an open source software designed for generating irreducible site-occupancy configurations (i.e., symmetrically inequivalent disordered structures), which allows extremely efficient modeling of multicomponent alloys or lattice defects (e.g., substitutions and vacancies).
 
 ## Features
 - Build supercell form arbitrary input cell with any supercell expansion matrix.
