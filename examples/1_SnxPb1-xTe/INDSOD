@@ -1,7 +1,7 @@
 &input
   nsub = 2
   subs = 16,16
-  symb = 'Sn','Pb'
+  symb = 'Sn','Pb' ! The quotes is unnecessary for the ifort compiler
   site = 2
   prec = 1D-5
 ! lpro = .true.
