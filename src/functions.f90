@@ -147,59 +147,41 @@ function det(A)
   return
 end function det
 
+function det2(A)
+  implicit none
+  real(8) :: det2,A(2,2)
+
+  det2=A(1,1)*A(2,2)-A(1,2)*A(2,1)
+  return
+end function det2
+
+function det3(A)
+  implicit none
+  real(8) :: det3,A(3,3)
+
+  det3=     A(1,1)*(A(2,2)*A(3,3)-A(2,3)*A(3,2))
+  det3=det3-A(1,2)*(A(2,1)*A(3,3)-A(2,3)*A(3,1))
+  det3=det3+A(1,3)*(A(2,1)*A(3,2)-A(2,2)*A(3,1))
+  return
+end function det3
+
 function inverse(A)
   implicit none
-  integer(1) :: i,j,N
   real(8) :: inverse(3,3)
-  real(8) :: A(:,:)
-  real(8) :: B(3,3),IA(3,3)
+  real(8) :: A(3,3)
+  integer(1) :: ind(2,3),i,j
 
-  N=3
-  forall(i=1:N,j=1:N,i==j) IA(i,j)=1.D0
-  forall(i=1:N,j=1:N,i/=j) IA(i,j)=0.D0
-  B=A
-  call upper(B,IA,N)
-  call lower(B,IA,N)
-  forall(i=1:N) IA(i,:)=IA(i,:)/B(i,i)
-  inverse=IA
+  ind(:,1)=(/ 2, 3 /)
+  ind(:,2)=(/ 1, 3 /)
+  ind(:,3)=(/ 1, 2 /)
+  do i=1,3
+    do j=1,3
+      inverse(j,i)=(-1)**(i+j)*det2(A(ind(:,i),ind(:,j)))
+    end do
+  end do
+  inverse=inverse/det3(A)
   return
 end function inverse
-
-subroutine upper(M,S,N)
-  implicit none
-  integer(1) :: N
-  real(8) :: M(N,N)
-  real(8) :: S(N,N)
-  integer(1) :: I,J
-  real(8) :: E
-
-  do I=1,N-1
-    do J=I+1,N
-      E=M(J,I)/M(I,I)
-      M(J,I:N)=M(J,I:N)-M(I,I:N)*E
-      S(J,:)=S(J,:)-S(I,:)*E
-    end do
-  end do
-  return
-end subroutine upper
-
-subroutine lower(M,S,N)
-  implicit none
-  integer(1) :: N
-  real(8) :: M(N,N)
-  real(8) :: S(N,N)
-  integer(1) :: I,J
-  real(8) :: E
-
-  do I=N,2,-1
-    do J=I-1,1,-1
-      E=M(J,I)/M(I,I)
-      M(J,I:N)=M(J,I:N)-M(I,I:N)*E
-      S(J,:)=S(J,:)-S(I,:)*E
-    end do
-  end do
-  return
-end subroutine lower
 
 recursive subroutine sort(A,left,right)
   implicit none
