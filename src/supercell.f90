@@ -61,6 +61,10 @@ program supercell
     end do
   end do
   xs=xs-floor(xs)
+! If you do not want to rotate the coordinate system,
+! please uncomment the following two lines of code.
+! call writepos(a,xs,atom,natom,'SPOSCAR')
+! stop
   la=norm(a(:,1))
   lb=norm(a(:,2))
   lc=norm(a(:,3))
