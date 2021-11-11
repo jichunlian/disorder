@@ -26,7 +26,7 @@ program supercell
     bd(1,i)=maxval(vertex(i,:))
     bd(2,i)=minval(vertex(i,:))
   end do
-  np=(bd(1,1)-bd(2,1))*(bd(1,2)-bd(2,2))*(bd(1,3)-bd(2,3))
+  np=1_2*(bd(1,1)-bd(2,1))*(bd(1,2)-bd(2,2))*(bd(1,3)-bd(2,3))
   allocate(Pc(3,np))
   allocate(Pd(3,np))
   n=0
