@@ -88,7 +88,7 @@ subroutine eliminating
       occ3=.true.
       do i3=1,ncm(2)
         if ( occ3(i3) .eqv. .false. ) cycle
-        call multinary(2,i3,occ3,degm(2),ib(2),ie(2))
+        call multinary(2_1,i3,occ3,degm(2),ib(2),ie(2))
         degm(2)=degm(1)*degm(2)
         if ( nk == 2 ) then
           il=(/ i2, i3 /)
@@ -98,7 +98,7 @@ subroutine eliminating
         occ4=.true.
         do i4=1,ncm(3)
           if ( occ4(i4) .eqv. .false. ) cycle
-          call multinary(3,i4,occ4,degm(3),ib(3),ie(3))
+          call multinary(3_1,i4,occ4,degm(3),ib(3),ie(3))
           degm(3)=degm(2)*degm(3)
           if ( nk == 3 ) then
             il=(/ i2, i3, i4 /)
@@ -108,7 +108,7 @@ subroutine eliminating
           occ5=.true.
           do i5=1,ncm(4)
             if ( occ5(i5) .eqv. .false. ) cycle
-            call multinary(4,i5,occ5,degm(4),ib(4),ie(4))
+            call multinary(4_1,i5,occ5,degm(4),ib(4),ie(4))
             degm(4)=degm(3)*degm(4)
             if ( nk == 4 ) then
               il=(/ i2, i3, i4, i5 /)
