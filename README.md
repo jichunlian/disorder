@@ -18,7 +18,7 @@
 
 ## How to Cite ?
 - Please cite the following article when you use ***disorder***：\
-[1] J.-C. Lian, H.-Y. Wu, W.-Q. Huang, W. Hu, and G.-F. Huang, [Phys. Rev. B **102**, 134209 (2020)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.102.134209).
+[1] J.-C. Lian, H.-Y. Wu, W.-Q. Huang, W. Hu, and G.-F. Huang, [Phys. Rev. B **102**, 134209 (2020)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.102.134209).\
 [2] J.-C. Lian, Y. Si, T. Huang, W.-Q. Huang, W. Hu, and G.-F. Huang, [Phys. Rev. B **105**, 014201 (2022)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.105.014201).
 
 ## Future
