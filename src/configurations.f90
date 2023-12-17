@@ -218,7 +218,7 @@ end subroutine trialclose
 subroutine degeneracy_correction
   integer(2) :: k1
 
-  if ( ng == 1 ) then
+  if ( group(2) == na+1 ) then
     deg=nint(deg*(dble(na)/k(1)))
   else
     do i=1,nirr
