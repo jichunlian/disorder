@@ -13,7 +13,7 @@ subroutine stdout_0
   write(*,*) "| (_| | \__ \ (_) | | | (_| |  __/ |   "
   write(*,*) " \__,_|_|___/\___/|_|  \__,_|\___|_|   "
   call system('printf "    `date +%F\ %H:%M:%S`"')
-  write(*,*) "  0.6.0-VASP"
+  write(*,*) "  0.6.1-VASP"
   write(*,*)
   return
 end subroutine stdout_0
